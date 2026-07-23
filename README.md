@@ -166,3 +166,38 @@ python .\publish_reddit_timeline.py --reddit-url "https://www.reddit.com/r/jobhu
 
 Posted Reddit IDs and API responses are tracked in the ignored local file
 `cache/chakrie_timeline_posts.json` to prevent duplicates.
+
+## Publish Facebook Page job posts to the Chakrie timeline
+
+Facebook publishing uses Meta's Graph API rather than scraping Facebook HTML.
+Configure a Page that your Meta app is authorized to read:
+
+```dotenv
+FACEBOOK_PAGE_ID=your_page_id
+FACEBOOK_PAGE_ACCESS_TOKEN=your_page_access_token
+FACEBOOK_GRAPH_VERSION=v23.0
+FACEBOOK_FETCH_LIMIT=100
+FACEBOOK_POST_LIMIT=100
+```
+
+Preview job-related Page posts without changing Chakrie:
+
+```powershell
+python .\publish_facebook_jobs_timeline.py
+```
+
+Post up to 100 recognized job posts:
+
+```powershell
+python .\publish_facebook_jobs_timeline.py --all --send
+```
+
+Use `--all-posts` when every Page post should be included instead of filtering
+for English and Bangla job-related keywords:
+
+```powershell
+python .\publish_facebook_jobs_timeline.py --all --all-posts --send
+```
+
+Successful Facebook post IDs are tracked in the ignored local file
+`cache/chakrie_facebook_posts.json` to prevent duplicates.
