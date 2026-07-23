@@ -201,3 +201,6 @@ python .\publish_facebook_jobs_timeline.py --all --all-posts --send
 
 Successful Facebook post IDs are tracked in the ignored local file
 `cache/chakrie_facebook_posts.json` to prevent duplicates.
+
+
+## python publish_to_chakrie.py --all --limit 1000 --send
