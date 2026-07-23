@@ -85,7 +85,8 @@ public job ID, and complete detail-page sections are stored in `job_sections`.
 
 ## Publish jobs to Chakrie
 
-The bearer token and endpoint are kept in `.env`. Preview one mapped job
+The bearer token and endpoint are kept in `.env`. This command reads current
+jobs directly from BDJobsLive; MySQL is not required. Preview one mapped job
 without changing Chakrie:
 
 ```powershell
@@ -104,14 +105,15 @@ Bulk publishing requires an explicit additional confirmation flag:
 python .\publish_to_chakrie.py --all --send
 ```
 
-Successful and failed API calls are tracked in `jobs_data.chakrie_posts`, so
-successful jobs are skipped on later runs unless `--force` is supplied.
+Successful and failed API calls are tracked in the ignored local file
+`cache/chakrie_job_posts.json`, so successful jobs are skipped on later runs
+unless `--force` is supplied.
 
 ## Publish r/jobs posts to the Chakrie timeline
 
-The timeline publisher reads Reddit's permitted `r/jobs` RSS feed, selects
-entries with images, downloads the image, and includes author/source
-attribution in the timeline body.
+The timeline publisher reads Reddit's permitted `r/jobs` RSS feed directly,
+selects entries with images, downloads the image, and includes author/source
+attribution in the timeline body. MySQL is not required.
 
 Preview the newest eligible entry without posting:
 
@@ -131,5 +133,36 @@ Post up to five currently eligible entries:
 python .\publish_reddit_timeline.py --all --limit 5 --send
 ```
 
-Posted Reddit IDs and API responses are tracked in
-`jobs_data.chakrie_timeline_posts` to prevent duplicates.
+Reddit's expanded RSS feed contains up to 100 recent entries, but most do not
+have images. To include text-only entries in a larger run:
+
+```powershell
+python .\publish_reddit_timeline.py --all --limit 100 --allow-text-only --send
+```
+
+Choose another jobs subreddit when the default feed has no new media:
+
+```powershell
+python .\publish_reddit_timeline.py --subreddit RemoteJobs --all --limit 100 --send
+```
+
+For a permanent source change, edit these values in `.env`:
+
+```dotenv
+REDDIT_URL=https://www.reddit.com/r/jobhunting/
+REDDIT_FETCH_LIMIT=100
+REDDIT_POST_LIMIT=100
+```
+
+`REDDIT_FETCH_LIMIT` controls how many RSS entries are requested (maximum
+100). `REDDIT_POST_LIMIT` controls the default number selected for preview or
+posting; `--limit` overrides it for one run.
+
+You can also override the full URL for one run:
+
+```powershell
+python .\publish_reddit_timeline.py --reddit-url "https://www.reddit.com/r/jobhunting/" --fetch-limit 100 --all --limit 100 --send
+```
+
+Posted Reddit IDs and API responses are tracked in the ignored local file
+`cache/chakrie_timeline_posts.json` to prevent duplicates.

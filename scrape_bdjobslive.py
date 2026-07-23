@@ -94,7 +94,9 @@ class Client:
             page += 1
         return list(listings.values())
 
-    def detail(self, listing: dict) -> tuple[dict, list[tuple[str, str]]]:
+    def detail(
+        self, listing: dict, download_logo: bool = True
+    ) -> tuple[dict, list[tuple[str, str]]]:
         source_url = f"{SITE}/bdjobs-details/{listing['slug']}"
         soup = BeautifulSoup(self.get(source_url).text, "html.parser")
         heading = soup.find("h1")
@@ -103,7 +105,7 @@ class Client:
                 "Detail page is unavailable; storing listing data only: %s",
                 source_url,
             )
-            return self._listing_only(listing, source_url), []
+            return self._listing_only(listing, source_url, download_logo), []
         card = self._job_card(heading)
         card_text = clean(card.get_text(" ", strip=True))
         sections = self._sections(card)
@@ -135,7 +137,7 @@ class Client:
             "company_id": listing.get("company_id"),
             "company_name": listing.get("company_name"),
             "company_slug": listing.get("company_slug"),
-            "company_logo_path": self.download_logo(listing),
+            "company_logo_path": self.download_logo(listing) if download_logo else None,
             "functional_area": listing.get("functional_area"),
             "industry": labels.get("Industry"),
             "job_type": listing.get("job_type") or labels.get("Job Type"),
@@ -164,7 +166,9 @@ class Client:
         }
         return data, sections
 
-    def _listing_only(self, listing: dict, source_url: str) -> dict:
+    def _listing_only(
+        self, listing: dict, source_url: str, download_logo: bool = True
+    ) -> dict:
         return {
             "source_job_id": int(listing["id"]),
             "source_url": source_url,
@@ -173,7 +177,7 @@ class Client:
             "company_id": listing.get("company_id"),
             "company_name": listing.get("company_name"),
             "company_slug": listing.get("company_slug"),
-            "company_logo_path": self.download_logo(listing),
+            "company_logo_path": self.download_logo(listing) if download_logo else None,
             "functional_area": listing.get("functional_area"),
             "industry": None,
             "job_type": listing.get("job_type"),

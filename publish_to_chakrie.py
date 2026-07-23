@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish jobs_data records to the authenticated Chakrie employer API."""
+"""Fetch BDJobsLive jobs and publish them to the authenticated Chakrie API."""
 
 from __future__ import annotations
 
@@ -11,11 +11,12 @@ import logging
 import os
 import re
 from datetime import date, datetime
+from pathlib import Path
 from typing import Any
 
-import mysql.connector
 import requests
 from dotenv import load_dotenv
+from scrape_bdjobslive import Client as BDJobsLiveClient
 
 
 load_dotenv()
@@ -26,6 +27,8 @@ CHAKRIE_API_URL = os.getenv(
     "CHAKRIE_API_URL",
     "https://www.chakrie.com/api/v1/mobile/employer/jobs",
 )
+ROOT = Path(__file__).resolve().parent
+TRACKING_PATH = ROOT / "cache" / "chakrie_job_posts.json"
 
 # Chakrie values observed from its employer API. These mappings are kept at
 # the top of the script so they are easy to adjust if the API changes.
@@ -92,129 +95,70 @@ def work_mode(value: Any) -> str:
     return "3"
 
 
-class Database:
-    def __init__(self):
-        self.connection = mysql.connector.connect(
-            host=os.getenv("MYSQL_HOST", "127.0.0.1"),
-            port=int(os.getenv("MYSQL_PORT", "3306")),
-            user=os.getenv("MYSQL_USER", "root"),
-            password=os.getenv("MYSQL_PASSWORD", ""),
-            database=os.getenv("JOBS_MYSQL_DATABASE", "jobs_data"),
-            charset="utf8mb4",
-            autocommit=False,
-        )
-        self.ensure_tracking_table()
+class Tracker:
+    """Small local duplicate guard; publishing never requires a database."""
 
-    def close(self):
-        self.connection.close()
-
-    def ensure_tracking_table(self):
-        cursor = self.connection.cursor()
+    def __init__(self, path: Path = TRACKING_PATH):
+        self.path = path
         try:
-            cursor.execute(
-                """
-                CREATE TABLE IF NOT EXISTS chakrie_posts (
-                    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-                    job_id BIGINT UNSIGNED NOT NULL,
-                    chakrie_job_id BIGINT UNSIGNED NULL,
-                    payload_hash CHAR(64) NOT NULL,
-                    status VARCHAR(40) NOT NULL,
-                    response_json JSON NULL,
-                    error_message TEXT NULL,
-                    posted_at DATETIME NULL,
-                    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-                        ON UPDATE CURRENT_TIMESTAMP,
-                    PRIMARY KEY (id),
-                    UNIQUE KEY uq_chakrie_posts_job (job_id),
-                    KEY idx_chakrie_remote_id (chakrie_job_id),
-                    CONSTRAINT fk_chakrie_posts_job
-                      FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
-                  COLLATE=utf8mb4_unicode_ci
-                """
-            )
-            self.connection.commit()
-        finally:
-            cursor.close()
+            value = json.loads(path.read_text(encoding="utf-8"))
+            self.records = value if isinstance(value, dict) else {}
+        except (FileNotFoundError, json.JSONDecodeError):
+            self.records = {}
 
-    def jobs(self, source_job_id: int | None, limit: int | None) -> list[dict]:
-        sql = """
-            SELECT j.*,
-                   cp.status AS chakrie_status,
-                   cp.chakrie_job_id,
-                   cp.payload_hash AS previous_payload_hash
-            FROM jobs j
-            LEFT JOIN chakrie_posts cp ON cp.job_id=j.id
-            WHERE j.application_deadline >= CURDATE()
-        """
-        values: list[Any] = []
-        if source_job_id is not None:
-            sql += " AND j.source_job_id=%s"
-            values.append(source_job_id)
-        sql += " ORDER BY j.published_at DESC, j.id DESC"
-        if limit is not None:
-            sql += " LIMIT %s"
-            values.append(max(limit, 0))
-        cursor = self.connection.cursor(dictionary=True)
-        try:
-            cursor.execute(sql, values)
-            jobs = cursor.fetchall()
-            for job in jobs:
-                job["sections"] = self.sections(job["id"])
-            return jobs
-        finally:
-            cursor.close()
-
-    def sections(self, job_id: int) -> dict[str, str]:
-        cursor = self.connection.cursor()
-        try:
-            cursor.execute(
-                "SELECT section_name,section_text FROM job_sections WHERE job_id=%s",
-                (job_id,),
-            )
-            return {clean(name).casefold(): clean(text) for name, text in cursor}
-        finally:
-            cursor.close()
+    def was_posted(self, source_job_id: int) -> bool:
+        record = self.records.get(str(source_job_id), {})
+        return isinstance(record, dict) and record.get("status") == "posted"
 
     def record(
         self,
-        job_id: int,
+        source_job_id: int,
         payload_hash: str,
         status: str,
         response: dict | list | None,
         remote_id: int | None = None,
         error: str | None = None,
     ):
-        cursor = self.connection.cursor()
-        try:
-            cursor.execute(
-                """
-                INSERT INTO chakrie_posts
-                    (job_id,chakrie_job_id,payload_hash,status,response_json,
-                     error_message,posted_at)
-                VALUES(%s,%s,%s,%s,%s,%s,
-                       IF(%s='posted',UTC_TIMESTAMP(),NULL))
-                ON DUPLICATE KEY UPDATE
-                    chakrie_job_id=COALESCE(VALUES(chakrie_job_id),chakrie_job_id),
-                    payload_hash=VALUES(payload_hash),
-                    status=VALUES(status),
-                    response_json=VALUES(response_json),
-                    error_message=VALUES(error_message),
-                    posted_at=IF(VALUES(status)='posted',UTC_TIMESTAMP(),posted_at)
-                """,
-                (
-                    job_id,
-                    remote_id,
-                    payload_hash,
-                    status,
-                    json.dumps(response, ensure_ascii=False) if response is not None else None,
-                    error,
-                    status,
-                ),
-            )
-            self.connection.commit()
-        finally:
-            cursor.close()
+        self.records[str(source_job_id)] = {
+            "chakrie_job_id": remote_id,
+            "payload_hash": payload_hash,
+            "status": status,
+            "response": response,
+            "error": error,
+        }
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        temporary = self.path.with_suffix(".tmp")
+        temporary.write_text(
+            json.dumps(self.records, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        temporary.replace(self.path)
+
+
+def source_jobs(source_job_id: int | None, limit: int | None) -> list[dict]:
+    """Fetch current jobs and their detail pages directly from BDJobsLive."""
+    client = BDJobsLiveClient(
+        float(os.getenv("SCRAPE_DELAY_SECONDS", "1.5")),
+        int(os.getenv("REQUEST_TIMEOUT_SECONDS", "30")),
+    )
+    listings = client.all_listings()
+    if source_job_id is not None:
+        listings = [
+            listing
+            for listing in listings
+            if int(listing.get("id", 0)) == source_job_id
+        ]
+    if limit is not None:
+        listings = listings[: max(limit, 0)]
+
+    jobs = []
+    for listing in listings:
+        data, sections = client.detail(listing, download_logo=False)
+        data["sections"] = {
+            clean(name).casefold(): clean(text) for name, text in sections
+        }
+        jobs.append(data)
+    return jobs
 
 
 def section(job: dict, *names: str) -> str:
@@ -312,7 +256,9 @@ def response_id(result: dict) -> int | None:
 
 
 def arguments():
-    parser = argparse.ArgumentParser(description="Publish jobs_data jobs to Chakrie.")
+    parser = argparse.ArgumentParser(
+        description="Fetch active BDJobsLive jobs and publish them to Chakrie."
+    )
     parser.add_argument("--job-id", type=int, help="One BDJobsLive source job ID.")
     parser.add_argument("--limit", type=int, help="Limit selected active jobs.")
     parser.add_argument("--send", action="store_true", help="Actually call the POST API.")
@@ -335,40 +281,37 @@ def main() -> int:
     if args.send and args.job_id is None and not args.all:
         raise SystemExit("Refusing bulk posting: add --all or select one --job-id.")
 
-    database = Database()
+    tracker = Tracker()
     failures = 0
-    try:
-        jobs = database.jobs(args.job_id, args.limit)
-        if not jobs:
-            raise SystemExit("No matching active job was found.")
-        LOG.info("Selected %d job(s)", len(jobs))
-        client = Chakrie() if args.send else None
-        for job in jobs:
-            body = payload(job)
-            encoded = json.dumps(body, ensure_ascii=False, sort_keys=True).encode()
-            digest = hashlib.sha256(encoded).hexdigest()
-            if job.get("chakrie_status") == "posted" and not args.force:
-                LOG.info("Skipped already posted: %s", job["title"])
-                continue
-            if not args.send:
-                print(json.dumps(body, ensure_ascii=False, indent=2))
-                if len(jobs) > 1:
-                    print("---")
-                continue
-            try:
-                result = client.post(body)
-                remote_id = response_id(result)
-                database.record(job["id"], digest, "posted", result, remote_id)
-                LOG.info("Posted: %s (Chakrie ID: %s)", job["title"], remote_id)
-            except Exception as exc:
-                failures += 1
-                database.record(job["id"], digest, "failed", None, error=str(exc))
-                LOG.error("Failed: %s — %s", job["title"], exc)
-    finally:
-        database.close()
+    jobs = source_jobs(args.job_id, args.limit)
+    if not jobs:
+        raise SystemExit("No matching active job was found.")
+    LOG.info("Selected %d job(s)", len(jobs))
+    client = Chakrie() if args.send else None
+    for job in jobs:
+        body = payload(job)
+        encoded = json.dumps(body, ensure_ascii=False, sort_keys=True).encode()
+        digest = hashlib.sha256(encoded).hexdigest()
+        source_job_id = int(job["source_job_id"])
+        if tracker.was_posted(source_job_id) and not args.force:
+            LOG.info("Skipped already posted: %s", job["title"])
+            continue
+        if not args.send:
+            print(json.dumps(body, ensure_ascii=False, indent=2))
+            if len(jobs) > 1:
+                print("---")
+            continue
+        try:
+            result = client.post(body)
+            remote_id = response_id(result)
+            tracker.record(source_job_id, digest, "posted", result, remote_id)
+            LOG.info("Posted: %s (Chakrie ID: %s)", job["title"], remote_id)
+        except Exception as exc:
+            failures += 1
+            tracker.record(source_job_id, digest, "failed", None, error=str(exc))
+            LOG.error("Failed: %s — %s", job["title"], exc)
     return 1 if failures else 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
