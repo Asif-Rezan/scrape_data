@@ -5,3 +5,5 @@ __pycache__/
 # Remove this line if downloaded product images should be committed to Git.
 images/
 job_images/
+timeline_media/
+cache/

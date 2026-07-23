@@ -106,3 +106,30 @@ python .\publish_to_chakrie.py --all --send
 
 Successful and failed API calls are tracked in `jobs_data.chakrie_posts`, so
 successful jobs are skipped on later runs unless `--force` is supplied.
+
+## Publish r/jobs posts to the Chakrie timeline
+
+The timeline publisher reads Reddit's permitted `r/jobs` RSS feed, selects
+entries with images, downloads the image, and includes author/source
+attribution in the timeline body.
+
+Preview the newest eligible entry without posting:
+
+```powershell
+python .\publish_reddit_timeline.py
+```
+
+Post one displayed Reddit ID:
+
+```powershell
+python .\publish_reddit_timeline.py --post-id t3_example --send
+```
+
+Post up to five currently eligible entries:
+
+```powershell
+python .\publish_reddit_timeline.py --all --limit 5 --send
+```
+
+Posted Reddit IDs and API responses are tracked in
+`jobs_data.chakrie_timeline_posts` to prevent duplicates.

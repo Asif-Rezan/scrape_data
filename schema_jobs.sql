@@ -83,3 +83,21 @@ CREATE TABLE IF NOT EXISTS chakrie_posts (
     CONSTRAINT fk_chakrie_posts_job
       FOREIGN KEY (job_id) REFERENCES jobs(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS chakrie_timeline_posts (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    reddit_post_id VARCHAR(100) NOT NULL,
+    reddit_url VARCHAR(1000) NOT NULL,
+    chakrie_post_id BIGINT UNSIGNED NULL,
+    body_hash CHAR(64) NOT NULL,
+    media_path VARCHAR(1000) NULL,
+    status VARCHAR(40) NOT NULL,
+    response_json JSON NULL,
+    error_message TEXT NULL,
+    posted_at DATETIME NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY uq_timeline_reddit_id (reddit_post_id),
+    KEY idx_timeline_remote_id (chakrie_post_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
