@@ -1,0 +1,7 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+# Remove this line if downloaded product images should be committed to Git.
+images/
+job_images/

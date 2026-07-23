@@ -1,0 +1,354 @@
+2026-07-23 14:42:24,199 | INFO | package: mysql.connector.plugins
+2026-07-23 14:42:24,200 | INFO | plugin_name: mysql_native_password
+2026-07-23 14:42:24,201 | INFO | AUTHENTICATION_PLUGIN_CLASS: MySQLNativePasswordAuthPlugin
+2026-07-23 14:42:25,102 | INFO | Read listing page 1/2
+2026-07-23 14:42:26,670 | INFO | Read listing page 2/2
+2026-07-23 14:42:26,671 | INFO | Processing 326 active jobs
+2026-07-23 14:42:28,098 | INFO | [1/326] Stored: Digital Marketing Intern
+2026-07-23 14:42:29,423 | INFO | [2/326] Stored: Customer Care Executive
+2026-07-23 14:42:30,768 | INFO | [3/326] Stored: Executive - HR, Admin & Compliance (Garments factory)
+2026-07-23 14:42:32,116 | INFO | [4/326] Stored: Head of Digital Marketing - SaaS Growth & Strategy
+2026-07-23 14:42:33,466 | INFO | [5/326] Stored: Creative Director - AI Specialist (Deputy HOD)
+2026-07-23 14:42:35,354 | ERROR | [6/326] Failed: https://www.bdjobslive.com/bdjobs-details/creative-director-ai-specialist-deputy-hod-12186
+Traceback (most recent call last):
+  File "E:\scrape_data\scrape_bdjobslive.py", line 341, in main
+    data, sections = client.detail(listing)
+                     ~~~~~~~~~~~~~^^^^^^^^^
+  File "E:\scrape_data\scrape_bdjobslive.py", line 102, in detail
+    raise ValueError("Job title was not found")
+ValueError: Job title was not found
+2026-07-23 14:42:36,718 | INFO | [7/326] Stored: Executive (Creative Production)
+2026-07-23 14:42:38,054 | INFO | [8/326] Stored: Assistant Manager/ Deputy Manager - Designer/ Motion Graphics Designer
+2026-07-23 14:42:39,416 | INFO | [9/326] Stored: Tier 1 Support Technician
+2026-07-23 14:42:40,752 | INFO | [10/326] Stored: Receptionist/ Front Desk Executive
+2026-07-23 14:42:42,084 | INFO | [11/326] Stored: \u09aa\u09b0\u09bf\u099a\u09cd\u099b\u09a8\u09cd\u09a8\u09a4\u09be \u0995\u09b0\u09cd\u09ae\u09c0
+2026-07-23 14:42:43,442 | INFO | [12/326] Stored: Manager/Deputy Manager, Legal Affairs
+2026-07-23 14:42:44,791 | INFO | [13/326] Stored: Executive, IT (Corporate)
+2026-07-23 14:42:46,160 | INFO | [14/326] Stored: Senior Executive, Regulatory Affairs
+2026-07-23 14:42:47,500 | INFO | [15/326] Stored: Asst. Executive- IT
+2026-07-23 14:42:48,855 | INFO | [16/326] Stored: Associate Product Manager
+2026-07-23 14:42:50,209 | INFO | [17/326] Stored: Executive, Sales & Marketing (Real Estate)
+2026-07-23 14:42:51,572 | INFO | [18/326] Stored: Sales & Marketing Officer
+2026-07-23 14:42:52,915 | INFO | [19/326] Stored: MIS and Documentation Officer (SMART) Project
+2026-07-23 14:42:54,278 | INFO | [20/326] Stored: Associate Executive - Accounts & Finance
+2026-07-23 14:42:55,604 | INFO | [21/326] Stored: Data Entry & Computer Operator
+2026-07-23 14:42:56,952 | INFO | [22/326] Stored: Assistant Manager-Operations (Jashore Office)
+2026-07-23 14:42:58,307 | INFO | [23/326] Stored: Tour Package Consultant
+2026-07-23 14:42:59,677 | INFO | [24/326] Stored: Supervisor / System Operator (Entry Level - Warehouse Operations)
+2026-07-23 14:43:01,030 | INFO | [25/326] Stored: Client & Vendor Relations Executive (Night Shift)
+2026-07-23 14:43:02,390 | INFO | [26/326] Stored: Social Media Executive
+2026-07-23 14:43:03,779 | INFO | [27/326] Stored: Marketing Executive
+2026-07-23 14:43:05,090 | INFO | [28/326] Stored: Research Executive
+2026-07-23 14:43:06,445 | INFO | [29/326] Stored: Senior/Junior Support Engineer
+2026-07-23 14:43:07,804 | INFO | [30/326] Stored: \u099c\u09c7\u09a8\u09be\u09b0\u09c7\u09b2 \u09ae\u09cd\u09af\u09be\u09a8\u09c7\u099c\u09be\u09b0 (Sales & Marketing)
+2026-07-23 14:43:09,145 | INFO | [31/326] Stored: District Team Leader (DTL)
+2026-07-23 14:43:10,514 | INFO | [32/326] Stored: \u09aa\u09bf\u09af\u09bc\u09a8
+2026-07-23 14:43:12,012 | INFO | [33/326] Stored: \u098f\u0995\u09be\u0989\u09a8\u09cd\u099f\u09c7\u09a8\u09cd\u099f (\u09ae\u09b9\u09bf\u09b2\u09be/\u09aa\u09c1\u09b0\u09c1\u09b7)
+2026-07-23 14:43:13,333 | INFO | [34/326] Stored: Senior Officer / Assistant Manager - Information Technology (IT)
+2026-07-23 14:43:14,659 | INFO | [35/326] Stored: \u09b0\u09bf\u09b8\u09c7\u09aa\u09b6\u09a8\u09bf\u09b8\u09cd\u099f (\u09ae\u09b9\u09bf\u09b2\u09be)
+2026-07-23 14:43:15,961 | INFO | [36/326] Stored: \u09b8\u09bf\u09ad\u09bf\u09b2 \u0987\u099e\u09cd\u099c\u09bf\u09a8\u09bf\u09af\u09bc\u09be\u09b0 (B.Sc.)
+2026-07-23 14:43:17,310 | INFO | [37/326] Stored: Officer / Senior Officer - Office of the Registrar
+2026-07-23 14:43:18,636 | INFO | [38/326] Stored: Digital Product Manager
+2026-07-23 14:43:19,949 | INFO | [39/326] Stored: Officer / Senior Officer- Lean Management
+2026-07-23 14:43:21,271 | INFO | [40/326] Stored: Senior Officer - IE (Pre-Production for Woven Garments)
+2026-07-23 14:43:22,856 | INFO | [41/326] Stored: Trainee Assistant Cash Officer (TACO)
+2026-07-23 14:43:24,158 | INFO | [42/326] Stored: Marketing Executive (Fashion and E-commerce)
+2026-07-23 14:43:26,523 | INFO | [43/326] Stored: Legal Affairs Officer
+2026-07-23 14:43:28,932 | INFO | [44/326] Stored: Chief Financial Officer (CFO)
+2026-07-23 14:43:31,344 | INFO | [45/326] Stored: Junior Back-End Developer
+2026-07-23 14:43:33,739 | INFO | [46/326] Stored: Sr. Manager/ Manager - Process Design & Optimization
+2026-07-23 14:43:36,137 | INFO | [47/326] Stored: Security Guard (\u09b8\u09bf\u0995\u09bf\u0989\u09b0\u09bf\u099f\u09bf \u0997\u09be\u09b0\u09cd\u09a1)
+2026-07-23 14:43:38,527 | INFO | [48/326] Stored: Intern (AI Skilled)
+2026-07-23 14:43:39,881 | INFO | [49/326] Stored: Assistant Manager/Deputy Manager (Customer Relation & Sales)
+2026-07-23 14:43:41,190 | INFO | [50/326] Stored: Sr. Executive (SCM)
+2026-07-23 14:43:43,548 | INFO | [51/326] Stored: Security Officer
+2026-07-23 14:43:45,984 | INFO | [52/326] Stored: Accounts and Finance - Asst. Manager / Deputy Manager
+2026-07-23 14:43:47,338 | INFO | [53/326] Stored: \u09b0\u09c7\u09b8\u09cd\u099f\u09c1\u09b0\u09c7\u09a8\u09cd\u099f \u09b8\u09c1\u09aa\u09be\u09b0\u09ad\u09be\u0987\u099c\u09be\u09b0
+2026-07-23 14:43:49,692 | INFO | [54/326] Stored: Laboratory Technician
+2026-07-23 14:43:51,050 | INFO | [55/326] Stored: HR & Admin Executive
+2026-07-23 14:43:52,391 | INFO | [56/326] Stored: \u0993\u09df\u09c7\u099f\u09be\u09b0 / \u0993\u09df\u09c7\u099f\u09cd\u09b0\u09c7\u09b8
+2026-07-23 14:43:54,778 | INFO | [57/326] Stored: Regional Coordinator – Agricultural Microfinance Operations
+2026-07-23 14:43:57,178 | INFO | [58/326] Stored: Diploma Pharmacist / Sales Assistant– Pharmacy
+2026-07-23 14:43:59,576 | INFO | [59/326] Stored: Executive - Digital Marketing & Corporate Communication
+2026-07-23 14:44:00,924 | INFO | [60/326] Stored: Manager / Sr. Manager- Production (Trishal Factory)
+2026-07-23 14:44:03,280 | INFO | [61/326] Stored: Senior SOP Writer
+2026-07-23 14:44:05,684 | INFO | [62/326] Stored: Business Development Executive
+2026-07-23 14:44:08,075 | INFO | [63/326] Stored: \u09a1\u09c7\u09b2\u09bf\u09ad\u09be\u09b0\u09bf \u09ae\u09cd\u09af\u09be\u09a8
+2026-07-23 14:44:10,483 | INFO | [64/326] Stored: Research Trainee (Bangla/BGS/English)
+2026-07-23 14:44:11,826 | INFO | [65/326] Stored: Business Development Officer (Offline Marketing)
+2026-07-23 14:44:14,205 | INFO | [66/326] Stored: Associate – Card Operations
+2026-07-23 14:44:15,548 | INFO | [67/326] Stored: Call Center Executive
+2026-07-23 14:44:17,905 | INFO | [68/326] Stored: Sr. Executive - Sales & Marketing
+2026-07-23 14:44:20,382 | INFO | [69/326] Stored: Senior Assistant Sales Manager (Interior Items)
+2026-07-23 14:44:21,728 | INFO | [70/326] Stored: Deputy Sales Manager (Interior Items)
+2026-07-23 14:44:24,063 | INFO | [71/326] Stored: Asst. Manager (HR & Admin)
+2026-07-23 14:44:26,458 | INFO | [72/326] Stored: Manager (IT & Logic ERP Implementation)
+2026-07-23 14:44:28,838 | INFO | [73/326] Stored: Academic Content Writer
+2026-07-23 14:44:31,260 | INFO | [74/326] Stored: Manager - Production / Operation (Battery & Metal)
+2026-07-23 14:44:33,666 | INFO | [75/326] Stored: Diploma Engineer (Electrical)
+2026-07-23 14:44:36,090 | INFO | [76/326] Stored: Deputy Manager- Business Development, IT
+2026-07-23 14:44:37,416 | INFO | [77/326] Stored: Public Relations Officer
+2026-07-23 14:44:39,803 | INFO | [78/326] Stored: Executive (IT Support)
+2026-07-23 14:44:42,195 | INFO | [79/326] Stored: Senior Counselor
+2026-07-23 14:44:44,599 | INFO | [80/326] Stored: Coordinator/Manager - UCEP Welfare Trust
+2026-07-23 14:44:47,007 | INFO | [81/326] Stored: Manager - Quality Assurance
+2026-07-23 14:44:49,379 | INFO | [82/326] Stored: Telesales & Customer Support Team Lead
+2026-07-23 14:44:51,790 | INFO | [83/326] Stored: Jr. Architect
+2026-07-23 14:44:54,189 | INFO | [84/326] Stored: Executive – Documentation
+2026-07-23 14:44:56,637 | INFO | [85/326] Stored: Electrical Engineer
+2026-07-23 14:44:57,991 | INFO | [86/326] Stored: Intern
+2026-07-23 14:45:00,410 | INFO | [87/326] Stored: Marketing Executive
+2026-07-23 14:45:02,756 | INFO | [88/326] Stored: Project Engineer (Sr. Executive)
+2026-07-23 14:45:04,107 | INFO | [89/326] Stored: Assistant Manager (Real Estate-Finishing Works)
+2026-07-23 14:45:06,480 | INFO | [90/326] Stored: Sr. Executive / Assistant Manager (Sales)
+2026-07-23 14:45:08,879 | INFO | [91/326] Stored: Assistant Manager-Market Quality (Rancon Motorbikes Limited-Suzuki)
+2026-07-23 14:45:10,241 | INFO | [92/326] Stored: Senior Executive/ Assistant Manager- Corporate (B2B)
+2026-07-23 14:45:12,650 | INFO | [93/326] Stored: Senior Software Engineer - Solution Development
+2026-07-23 14:45:15,064 | INFO | [94/326] Stored: Deputy Manager - Warehouse Department
+2026-07-23 14:45:17,525 | INFO | [95/326] Stored: \u099c\u09c1\u09a8\u09bf\u09df\u09b0 \u09ab\u09bf\u09b2\u09cd\u09a1 \u0985\u09b0\u09cd\u0997\u09be\u09a8\u09be\u0987\u099c\u09be\u09b0
+2026-07-23 14:45:19,022 | INFO | [96/326] Stored: \u09b9\u09bf\u09b8\u09be\u09ac\u09b0\u0995\u09cd\u09b7\u0995
+2026-07-23 14:45:21,240 | INFO | [97/326] Stored: Associate / Marketing Officer (Trader)
+2026-07-23 14:45:23,647 | INFO | [98/326] Stored: Depot In-Charge
+2026-07-23 14:45:26,035 | INFO | [99/326] Stored: Paid Internship
+2026-07-23 14:45:28,431 | INFO | [100/326] Stored: Assistant Manager, Store
+2026-07-23 14:45:30,840 | INFO | [101/326] Stored: Deputy Manager/Assistant Manager
+2026-07-23 14:45:32,159 | INFO | [102/326] Stored: Support Engineer, Nationwide Customer Service & Support
+2026-07-23 14:45:34,582 | INFO | [103/326] Stored: Sales Executive (Female)
+2026-07-23 14:45:36,934 | INFO | [104/326] Stored: Business Development Executive (Sales Representative)
+2026-07-23 14:45:38,295 | INFO | [105/326] Stored: Diploma Architect
+2026-07-23 14:45:39,624 | INFO | [106/326] Stored: Architect
+2026-07-23 14:45:42,045 | INFO | [107/326] Stored: VISA Admission Officer (Study Abroad)
+2026-07-23 14:45:44,431 | INFO | [108/326] Stored: Senior UI/UX Designer
+2026-07-23 14:45:45,776 | INFO | [109/326] Stored: Junior UI/UX Designer
+2026-07-23 14:45:48,143 | INFO | [110/326] Stored: Security Guard
+2026-07-23 14:45:50,559 | INFO | [111/326] Stored: Digital Marketing Executive & SEO Expert
+2026-07-23 14:45:51,929 | INFO | [112/326] Stored: Graphic Designer
+2026-07-23 14:45:54,282 | INFO | [113/326] Stored: Node.js & TypeScript Developer (Python)
+2026-07-23 14:45:56,682 | INFO | [114/326] Stored: Vigilance Officer
+2026-07-23 14:45:59,097 | INFO | [115/326] Stored: Principal
+2026-07-23 14:46:01,466 | INFO | [116/326] Stored: Field Sales Associate
+2026-07-23 14:46:03,874 | INFO | [117/326] Stored: Product Manager (Agri Machineries)
+2026-07-23 14:46:05,238 | INFO | [118/326] Stored: \u09ae\u09be\u09b0\u09cd\u0995\u09c7\u099f \u09ab\u09cd\u09af\u09be\u09b8\u09bf\u09b2\u09bf\u099f\u09c7\u099f\u09b0 - \u0995\u09c3\u09b7\u09bf \u098b\u09a3 (Microfinance)
+2026-07-23 14:46:07,608 | INFO | [119/326] Stored: Graphic Designer (Sub-Contractual)
+2026-07-23 14:46:10,083 | INFO | [120/326] Stored: Company Lawyer
+2026-07-23 14:46:11,347 | INFO | [121/326] Stored: Financial Analyst - Wholesale Underwriting
+2026-07-23 14:46:12,654 | INFO | [122/326] Stored: Associate - Liability Operations Department
+2026-07-23 14:46:15,061 | INFO | [123/326] Stored: Lead-IT Operations
+2026-07-23 14:46:16,406 | INFO | [124/326] Stored: Customer Care Officer (Call Center)
+2026-07-23 14:46:18,763 | INFO | [125/326] Stored: Sales Executive (Female)
+2026-07-23 14:46:21,144 | INFO | [126/326] Stored: Marketing Executive (Female) – Facebook Moderator & Call Center Executive
+2026-07-23 14:46:23,564 | INFO | [127/326] Stored: Picture/ Image Retouching Expert
+2026-07-23 14:46:25,967 | INFO | [128/326] Stored: Legal Officer (Officer - FAVP)
+2026-07-23 14:46:28,376 | INFO | [129/326] Stored: Deputy Chief Engineer - Civil (Real Estate Projects)
+2026-07-23 14:46:30,792 | INFO | [130/326] Stored: Sr. Project Engineer/Project Engineer-Civil (RCL)
+2026-07-23 14:46:33,183 | INFO | [131/326] Stored: I&C Information Engineer - IT
+2026-07-23 14:46:34,544 | INFO | [132/326] Stored: Manager / Deputy Manager - Material Management
+2026-07-23 14:46:35,865 | INFO | [133/326] Stored: CHP & AHP Work Foreman
+2026-07-23 14:46:38,264 | INFO | [134/326] Stored: Digital Marketing Expert
+2026-07-23 14:46:39,617 | INFO | [135/326] Stored: Marketing Executive(Takamul)
+2026-07-23 14:46:41,990 | INFO | [136/326] Stored: Sr. Executive- Warehouse (Woven)
+2026-07-23 14:46:43,348 | INFO | [137/326] Stored: Executive / Senior Executive - Admin
+2026-07-23 14:46:44,667 | INFO | [138/326] Stored: Business Development Executive (Night Shift)
+2026-07-23 14:46:47,042 | INFO | [139/326] Stored: International Call Center Executive (Night Shift)
+2026-07-23 14:46:49,440 | INFO | [140/326] Stored: Quality Assurance - Knit & Woven
+2026-07-23 14:46:51,845 | INFO | [141/326] Stored: Manager, R&D
+2026-07-23 14:46:54,212 | INFO | [142/326] Stored: Assistant Manager - HR & Admin
+2026-07-23 14:46:55,573 | INFO | [143/326] Stored: Client Relationship Manager
+2026-07-23 14:46:56,896 | INFO | [144/326] Stored: Head of Sales
+2026-07-23 14:46:58,207 | INFO | [145/326] Stored: Sales Executive
+2026-07-23 14:47:00,588 | INFO | [146/326] Stored: Sr. Designer
+2026-07-23 14:47:02,976 | INFO | [147/326] Stored: Accounts Officer
+2026-07-23 14:47:05,349 | INFO | [148/326] Stored: Executive /Sr Executive, Sales & Marketing
+2026-07-23 14:47:07,764 | INFO | [149/326] Stored: Protocol & Government Liaison Officer
+2026-07-23 14:47:10,185 | INFO | [150/326] Stored: Sales Ledger Clerk
+2026-07-23 14:47:12,590 | INFO | [151/326] Stored: Personal Secretary
+2026-07-23 14:47:13,950 | INFO | [152/326] Stored: Purchase Ledger Clerk
+2026-07-23 14:47:15,262 | INFO | [153/326] Stored: Purchase Ledger Clerk
+2026-07-23 14:47:16,572 | INFO | [154/326] Stored: Manager, Sales & Marketing
+2026-07-23 14:47:18,933 | INFO | [155/326] Stored: \u098f\u09b8\u09bf\u09b8\u09cd\u099f\u09c7\u09a8\u09cd\u099f \u09ae\u09cd\u09af\u09be\u09a8\u09c7\u099c\u09be\u09b0 (\u09b8\u09c7\u09b2\u09b8\u09cd \u098f\u09a8\u09cd\u09a1 \u09ae\u09be\u09b0\u09cd\u0995\u09c7\u099f\u09bf\u0982)
+2026-07-23 14:47:20,268 | INFO | [156/326] Stored: \u098f\u0995\u09cd\u09b8\u09bf\u0995\u09bf\u0989\u099f\u09bf\u09ad (\u09b8\u09c7\u09b2\u09b8\u09cd \u098f\u09a8\u09cd\u09a1 \u09ae\u09be\u09b0\u09cd\u0995\u09c7\u099f\u09bf\u0982)
+2026-07-23 14:47:21,594 | INFO | [157/326] Stored: \u098f\u0995\u09be\u0989\u09a8\u09cd\u099f\u09b8 \u0985\u09ab\u09bf\u09b8\u09be\u09b0
+2026-07-23 14:47:23,974 | INFO | [158/326] Stored: Anti-Fraud Analyst
+2026-07-23 14:47:26,353 | INFO | [159/326] Stored: Executive/Sr. Executive - Priority Sales
+2026-07-23 14:47:28,722 | INFO | [160/326] Stored: Tele Sales Executive - USA Process (Night Shift)
+2026-07-23 14:47:31,127 | INFO | [161/326] Stored: Electrician
+2026-07-23 14:47:33,549 | INFO | [162/326] Stored: Head of Arabic Language & Islamic Studies
+2026-07-23 14:47:35,952 | INFO | [163/326] Stored: Executive/Senior Executive - Campaign & Content Production (Fashion Retail - Sailor)
+2026-07-23 14:47:38,376 | INFO | [164/326] Stored: Fashion Designer - 3D & Technical
+2026-07-23 14:47:39,716 | INFO | [165/326] Stored: Chemist / Manager - R&D (Soap Manufacturing)
+2026-07-23 14:47:41,052 | INFO | [166/326] Stored: OSM (Outdoor Sales & Marketing)
+2026-07-23 14:47:43,441 | INFO | [167/326] Stored: Professor - Mathematics
+2026-07-23 14:47:45,836 | INFO | [168/326] Stored: Lecturer/Assistant Professor cum Student Counselor (Psychology), Department of Humanities
+2026-07-23 14:47:48,244 | INFO | [169/326] Stored: Front Desk Executive
+2026-07-23 14:47:50,635 | INFO | [170/326] Stored: Junior Executive, Front Desk
+2026-07-23 14:47:53,037 | INFO | [171/326] Stored: Reception And Front Desk Executive
+2026-07-23 14:47:55,441 | INFO | [172/326] Stored: Sales & Marketing Executive (Real Estate)
+2026-07-23 14:47:57,984 | INFO | [173/326] Stored: Student Counselor
+2026-07-23 14:48:00,301 | INFO | [174/326] Stored: Guest Relation Officer / Front Office Executive (Female)
+2026-07-23 14:48:02,703 | INFO | [175/326] Stored: Senior Executive - (Graphic Design + Digital Marketing)
+2026-07-23 14:48:05,140 | INFO | [176/326] Stored: Marketing Executive ( Female/ Male )
+2026-07-23 14:48:07,614 | INFO | [177/326] Stored: Sr. Executive / Asst.Manager (Sales & Marketing)
+2026-07-23 14:48:10,046 | INFO | [178/326] Stored: Assistant Manager- Institutional Sales
+2026-07-23 14:48:12,485 | INFO | [179/326] Stored: Area Manager - Marketing
+2026-07-23 14:48:15,405 | INFO | [180/326] Stored: Area Manager - Marketing (Animal health Division)
+2026-07-23 14:48:18,294 | INFO | [181/326] Stored: Manager - Fisheries (Project)
+2026-07-23 14:48:21,029 | INFO | [182/326] Stored: Assistant Manager (Field)
+2026-07-23 14:48:23,660 | INFO | [183/326] Stored: Executive/Sr. Executive, Technical service
+2026-07-23 14:48:26,482 | INFO | [184/326] Stored: Manager - Lab
+2026-07-23 14:48:29,318 | INFO | [185/326] Stored: Digital Marketing Manager
+2026-07-23 14:48:30,854 | INFO | [186/326] Stored: Store In-Charge / Depot In-Charge
+2026-07-23 14:48:33,341 | INFO | [187/326] Stored: Senior Executive – B2B Sales
+2026-07-23 14:48:35,770 | INFO | [188/326] Stored: Junior Executive
+2026-07-23 14:48:38,214 | INFO | [189/326] Stored: Assistant Engineer-Maintenance
+2026-07-23 14:48:39,535 | INFO | [190/326] Stored: Video Editor & Graphic Designer
+2026-07-23 14:48:40,925 | INFO | [191/326] Stored: \u09aa\u09bf\u0993\u09a8 / \u0985\u09ab\u09bf\u09b8 \u09b8\u09cd\u099f\u09be\u09ab
+2026-07-23 14:48:43,281 | INFO | [192/326] Stored: Intern - HR
+2026-07-23 14:48:45,682 | INFO | [193/326] Stored: Asst. Manager - Manager - Automobile (Transport & Maintenance)
+2026-07-23 14:48:47,034 | INFO | [194/326] Stored: Sr. Officer / Asst. Manager
+2026-07-23 14:48:48,358 | INFO | [195/326] Stored: Senior Executive, Legal Affairs, Way Housing Private Limited
+2026-07-23 14:48:49,697 | INFO | [196/326] Stored: Regional Sales Manager (RSM)
+2026-07-23 14:48:52,094 | INFO | [197/326] Stored: Legal Adviser (Advocate)
+2026-07-23 14:48:53,454 | INFO | [198/326] Stored: Manager/Deputy Manager, Legal Affairs
+2026-07-23 14:48:54,838 | INFO | [199/326] Stored: Deputy General Manager/Assistant General Manager, Legal Affairs
+2026-07-23 14:48:57,157 | INFO | [200/326] Stored: Regional Sales Manager (Animal Feed Division)
+2026-07-23 14:48:59,565 | INFO | [201/326] Stored: Assistant Manager / Manager- Business Development.
+2026-07-23 14:49:01,973 | INFO | [202/326] Stored: Compliance Manager
+2026-07-23 14:49:04,354 | INFO | [203/326] Stored: Patient Billing Support Executive - Night Shift
+2026-07-23 14:49:06,930 | INFO | [204/326] Stored: Manager / Senior Manager – Accounts & Finance
+2026-07-23 14:49:08,124 | INFO | [205/326] Stored: Senior Executive/ Assistant Manager - Accounts and HR Admin.
+2026-07-23 14:49:10,499 | INFO | [206/326] Stored: Cashier
+2026-07-23 14:49:12,900 | INFO | [207/326] Stored: \u098f\u09b8\u09bf \u0993 \u09b0\u09c7\u09ab\u09cd\u09b0\u09bf\u099c\u09be\u09b0\u09c7\u099f\u09b0 \u09b8\u09be\u09b0\u09cd\u09ad\u09bf\u09b8 \u0987\u099e\u09cd\u099c\u09bf\u09a8\u09bf\u09af\u09bc\u09be\u09b0/\u099f\u09c7\u0995\u09a8\u09bf\u09b6\u09bf\u09af\u09bc\u09be\u09a8
+2026-07-23 14:49:14,268 | INFO | [208/326] Stored: Hospitality Staff
+2026-07-23 14:49:16,653 | INFO | [209/326] Stored: \u09ae\u09be\u09b0\u09cd\u0995\u09c7\u099f\u09bf\u0982 \u0985\u09ab\u09bf\u09b8\u09be\u09b0
+2026-07-23 14:49:19,073 | INFO | [210/326] Stored: Trainer - SEB (Socio-Emotional and Behavioral)
+2026-07-23 14:49:20,478 | INFO | [211/326] Stored: Admin and Accounts Officer
+2026-07-23 14:49:21,762 | INFO | [212/326] Stored: Trainer - EDT (Entrepreneurship Development Training)
+2026-07-23 14:49:23,099 | INFO | [213/326] Stored: Cluster Coordinator
+2026-07-23 14:49:24,423 | INFO | [214/326] Stored: Community Mobilizer - Union Level
+2026-07-23 14:49:26,818 | INFO | [215/326] Stored: Senior Executive / Officer, Sales
+2026-07-23 14:49:29,218 | INFO | [216/326] Stored: \u09b2\u09cd\u09af\u09be\u09ac \u099f\u09c7\u0995\u09a8\u09cb\u09b2\u099c\u09bf\u09b8\u09cd\u099f
+2026-07-23 14:49:31,639 | INFO | [217/326] Stored: \u0987\u09b2\u09c7\u0995\u099f\u09cd\u09b0\u09bf\u09b6\u09bf\u09df\u09be\u09a8
+2026-07-23 14:49:34,021 | INFO | [218/326] Stored: Assistant Manager, Factory HR & Welfare (Mongla)
+2026-07-23 14:49:36,405 | INFO | [219/326] Stored: Executive - Logistics & Supply Chain Operations
+2026-07-23 14:49:38,798 | INFO | [220/326] Stored: \u09b8\u09bf\u0995\u09bf\u0989\u09b0\u09bf\u099f\u09bf \u0997\u09be\u09b0\u09cd\u09a1
+2026-07-23 14:49:41,196 | INFO | [221/326] Stored: Security Personnel
+2026-07-23 14:49:43,605 | INFO | [222/326] Stored: Security Guard
+2026-07-23 14:49:45,994 | INFO | [223/326] Stored: \u0995\u09c7\u09df\u09be\u09b0\u099f\u09c7\u0995\u09be\u09b0 (\u09e8\u09ea/\u09ed)
+2026-07-23 14:49:48,401 | INFO | [224/326] Stored: Executive - International Business
+2026-07-23 14:49:49,758 | INFO | [225/326] Stored: Assistant Manager, Material Planning, Supply Chain
+2026-07-23 14:49:52,162 | INFO | [226/326] Stored: Senior Executive (CS)- Ocean Freight
+2026-07-23 14:49:54,574 | INFO | [227/326] Stored: Sales & Marketing Representative (Real Estate)
+2026-07-23 14:49:56,990 | INFO | [228/326] Stored: IT Specialist
+2026-07-23 14:49:58,349 | INFO | [229/326] Stored: Executive - HR & Admin
+2026-07-23 14:49:59,656 | INFO | [230/326] Stored: Manager Operation
+2026-07-23 14:50:00,980 | INFO | [231/326] Stored: Digital Marketing Executive (SEO & Content)
+2026-07-23 14:50:03,358 | INFO | [232/326] Stored: Digital Marketing Executive
+2026-07-23 14:50:04,740 | INFO | [233/326] Stored: Civil Corporate Lawyer
+2026-07-23 14:50:07,106 | INFO | [234/326] Stored: Executive – Website Developer (Odoo)
+2026-07-23 14:50:09,505 | INFO | [235/326] Stored: \u0995\u09b2 \u09b8\u09c7\u09a8\u09cd\u099f\u09be\u09b0 \u098f\u0995\u09cd\u09b8\u09bf\u0995\u09bf\u0989\u099f\u09bf\u09ad
+2026-07-23 14:50:10,872 | INFO | [236/326] Stored: \u09a1\u09cd\u09b0\u09be\u0987\u09ad\u09be\u09b0
+2026-07-23 14:50:13,232 | INFO | [237/326] Stored: Cleaner
+2026-07-23 14:50:14,616 | INFO | [238/326] Stored: Security Guard
+2026-07-23 14:50:15,936 | INFO | [239/326] Stored: Technician (Assistant)
+2026-07-23 14:50:17,292 | INFO | [240/326] Stored: Driver
+2026-07-23 14:50:19,679 | INFO | [241/326] Stored: Driver
+2026-07-23 14:50:22,080 | INFO | [242/326] Stored: Driver
+2026-07-23 14:50:24,499 | INFO | [243/326] Stored: Officer-Logistics (Transport)
+2026-07-23 14:50:26,913 | INFO | [244/326] Stored: Receptionist (Female)
+2026-07-23 14:50:29,318 | INFO | [245/326] Stored: Project Manager - Building Project
+2026-07-23 14:50:31,738 | INFO | [246/326] Stored: Front Desk Executive
+2026-07-23 14:50:33,114 | INFO | [247/326] Stored: Receptionist
+2026-07-23 14:50:35,501 | INFO | [248/326] Stored: General Manager - Technical (Sample & CAD)
+2026-07-23 14:50:37,925 | INFO | [249/326] Stored: Sales & Marketing Executive (Part -Time)
+2026-07-23 14:50:39,254 | INFO | [250/326] Stored: Jr. Executive/ Executive- Sales (A-One Polymer Limited: A1- Lion)
+2026-07-23 14:50:40,606 | INFO | [251/326] Stored: Executive - Commercial (Export), Corporate Office
+2026-07-23 14:50:41,930 | INFO | [252/326] Stored: Executive-HR Generalist
+2026-07-23 14:50:44,311 | INFO | [253/326] Stored: Sales Representative (SR)
+2026-07-23 14:50:46,815 | INFO | [254/326] Stored: Executive / Sr. Executive – Sales & Marketing (Internet Sales)
+2026-07-23 14:50:49,200 | INFO | [255/326] Stored: Business Development Intern
+2026-07-23 14:50:50,537 | INFO | [256/326] Stored: Area Manager – Marketing (Animal health Division)
+2026-07-23 14:50:51,848 | INFO | [257/326] Stored: Digital Strategy & Growth Manager
+2026-07-23 14:50:54,256 | INFO | [258/326] Stored: Head of Sales
+2026-07-23 14:50:55,575 | INFO | [259/326] Stored: Social Media Marketer
+2026-07-23 14:50:56,896 | INFO | [260/326] Stored: Assistant Manager / Deputy Manager – Brand & Marketing
+2026-07-23 14:50:59,397 | INFO | [261/326] Stored: Executive, Corporate Sales (Vehicle Tracking Services)
+2026-07-23 14:51:01,768 | INFO | [262/326] Stored: Customer Service Agent
+2026-07-23 14:51:04,164 | INFO | [263/326] Stored: Intern - Accounts And Finance
+2026-07-23 14:51:06,548 | INFO | [264/326] Stored: Junior Executive – Finance & Accounts
+2026-07-23 14:51:08,954 | INFO | [265/326] Stored: Sales Executive — Land & Asset Advisory, Forest Eco Resort (NEXCENT Group | Premium Real Estate & Ec
+2026-07-23 14:51:11,344 | INFO | [266/326] Stored: Manager ( Vat & Tax)
+2026-07-23 14:51:12,674 | INFO | [267/326] Stored: Project Director
+2026-07-23 14:51:15,034 | INFO | [268/326] Stored: SQA Engineer
+2026-07-23 14:51:17,417 | INFO | [269/326] Stored: Management Trainee - Credit Control
+2026-07-23 14:51:18,765 | INFO | [270/326] Stored: Senior Executive - Technical Sales
+2026-07-23 14:51:21,143 | INFO | [271/326] Stored: Solar PV Engineer (Business Development & Project Execution)
+2026-07-23 14:51:23,549 | INFO | [272/326] Stored: Corporate Sales Executive
+2026-07-23 14:51:24,884 | INFO | [273/326] Stored: Tele Sales Executive
+2026-07-23 14:51:26,191 | INFO | [274/326] Stored: Video & Graphic Designer
+2026-07-23 14:51:27,521 | INFO | [275/326] Stored: Sr. Officer/Asst. Manager, Digital Marketing
+2026-07-23 14:51:28,840 | INFO | [276/326] Stored: Elite Clients Hostage - Assistant Manager (Female)
+2026-07-23 14:51:30,151 | INFO | [277/326] Stored: Merchandiser
+2026-07-23 14:51:32,521 | INFO | [278/326] Stored: Counselor
+2026-07-23 14:51:34,940 | INFO | [279/326] Stored: Oracle Identity Manager (OIM) Consultant - Implementation & Support
+2026-07-23 14:51:37,337 | INFO | [280/326] Stored: Global Business Development Manager- IT
+2026-07-23 14:51:39,732 | INFO | [281/326] Stored: Factory Manager (Production)
+2026-07-23 14:51:42,168 | INFO | [282/326] Stored: Executive, Administration
+2026-07-23 14:51:44,574 | INFO | [283/326] Stored: Senior/ Territory Manager (Consumer Brands)
+2026-07-23 14:51:46,959 | INFO | [284/326] Stored: Project Manager-PM (Road and Bridge / Building Construction)
+2026-07-23 14:51:48,277 | INFO | [285/326] Stored: Head of Retail Credit
+2026-07-23 14:51:50,676 | INFO | [286/326] Stored: Digital And Tele-marketing Executive
+2026-07-23 14:51:53,045 | INFO | [287/326] Stored: Accounts Officer
+2026-07-23 14:51:55,448 | INFO | [288/326] Stored: IT Security Specialist
+2026-07-23 14:51:56,826 | INFO | [289/326] Stored: Fashion Designer
+2026-07-23 14:51:59,215 | INFO | [290/326] Stored: Head of Marketing
+2026-07-23 14:52:01,658 | INFO | [291/326] Stored: Dyeing Manager - Woven Washing
+2026-07-23 14:52:02,998 | INFO | [292/326] Stored: Head of Talent Acquisition
+2026-07-23 14:52:05,361 | INFO | [293/326] Stored: Director (Audit & IT)
+2026-07-23 14:52:06,701 | INFO | [294/326] Stored: Senior Work Study Officer
+2026-07-23 14:52:09,125 | INFO | [295/326] Stored: Frontend Developer
+2026-07-23 14:52:10,478 | INFO | [296/326] Stored: Backend Developer
+2026-07-23 14:52:12,869 | INFO | [297/326] Stored: Field Sales Associate (Software Install)
+2026-07-23 14:52:15,248 | INFO | [298/326] Stored: Junior Network Engineer
+2026-07-23 14:52:17,648 | INFO | [299/326] Stored: Executive - NOC Support (ISP)
+2026-07-23 14:52:20,054 | INFO | [300/326] Stored: International Call Center Agent (Night Shift)
+2026-07-23 14:52:22,465 | INFO | [301/326] Stored: Merchandiser/ Senior Merchandiser, Merchandising - Woven Garments
+2026-07-23 14:52:24,848 | INFO | [302/326] Stored: Showroom Sales Executive
+2026-07-23 14:52:26,235 | INFO | [303/326] Stored: Inventory and Accounts Executive
+2026-07-23 14:52:28,592 | INFO | [304/326] Stored: Sr. Manager / AGM
+2026-07-23 14:52:29,937 | INFO | [305/326] Stored: Executive / Sr. Executive - Sales & Marketing
+2026-07-23 14:52:31,254 | INFO | [306/326] Stored: Territory Sales Officer - Agri Input (Seed, Pesticides, Feed)
+2026-07-23 14:52:32,581 | INFO | [307/326] Stored: Assistant Sales Manager (Interior Items)
+2026-07-23 14:52:33,916 | INFO | [308/326] Stored: Senior Assistant Sales Manager (Interior Items)
+2026-07-23 14:52:36,309 | INFO | [309/326] Stored: Sales Executive
+2026-07-23 14:52:37,664 | INFO | [310/326] Stored: English Language Instructor
+2026-07-23 14:52:40,031 | INFO | [311/326] Stored: Officer - Business Development
+2026-07-23 14:52:41,370 | INFO | [312/326] Stored: Front Desk Executive
+2026-07-23 14:52:42,707 | INFO | [313/326] Stored: Graphic Designer
+2026-07-23 14:52:45,067 | INFO | [314/326] Stored: Executive
+2026-07-23 14:52:46,406 | INFO | [315/326] Stored: Computer Operator (Female)
+2026-07-23 14:52:47,724 | INFO | [316/326] Stored: Data Entry Executive
+2026-07-23 14:52:49,045 | INFO | [317/326] Stored: Software Support Engineer
+2026-07-23 14:52:51,426 | INFO | [318/326] Stored: Flutter Developer
+2026-07-23 14:52:53,818 | INFO | [319/326] Stored: Tele Sales
+2026-07-23 14:52:56,225 | INFO | [320/326] Stored: SEO & Digital Marketing Specialist (Web & App)
+2026-07-23 14:52:58,610 | INFO | [321/326] Stored: Hub Officer
+2026-07-23 14:52:59,966 | INFO | [322/326] Stored: Software Engineer- Flutter
+2026-07-23 14:53:02,353 | INFO | [323/326] Stored: Senior Executive - Motion & 3D Animator
+2026-07-23 14:53:03,715 | INFO | [324/326] Stored: Telesales Excecutive
+2026-07-23 14:53:05,537 | ERROR | [325/326] Failed: https://www.bdjobslive.com/bdjobs-details/fish-processing-technologist-7857
+Traceback (most recent call last):
+  File "E:\scrape_data\scrape_bdjobslive.py", line 341, in main
+    data, sections = client.detail(listing)
+                     ~~~~~~~~~~~~~^^^^^^^^^
+  File "E:\scrape_data\scrape_bdjobslive.py", line 102, in detail
+    raise ValueError("Job title was not found")
+ValueError: Job title was not found
+2026-07-23 14:53:07,469 | ERROR | [326/326] Failed: https://www.bdjobslive.com/bdjobs-details/office-assistant-cum-computer-typist-7461
+Traceback (most recent call last):
+  File "E:\scrape_data\scrape_bdjobslive.py", line 341, in main
+    data, sections = client.detail(listing)
+                     ~~~~~~~~~~~~~^^^^^^^^^
+  File "E:\scrape_data\scrape_bdjobslive.py", line 102, in detail
+    raise ValueError("Job title was not found")
+ValueError: Job title was not found
+2026-07-23 14:53:07,472 | INFO | Finished. Stored=323 failed=3
